@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{44DAABFD-366B-3B2A-A5D1-21369F41533E}</ProjectGuid>
+    <RootNamespace>ximea_dk</RootNamespace>
+    <Keyword>QtVS_v300</Keyword>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <PlatformToolset>v141</PlatformToolset>
+    <OutputDirectory>release\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>Application</ConfigurationType>
+    <IntermediateDirectory>release\</IntermediateDirectory>
+    <PrimaryOutput>ximea_dk</PrimaryOutput>
+    <QtInstall>msvc2017_64</QtInstall>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <PlatformToolset>v141</PlatformToolset>
+    <OutputDirectory>debug\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>Application</ConfigurationType>
+    <IntermediateDirectory>debug\</IntermediateDirectory>
+    <PrimaryOutput>ximea_dk</PrimaryOutput>
+    <QtInstall>msvc2017_64</QtInstall>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <PropertyGroup Condition="'$(QtMsBuild)'=='' or !Exists('$(QtMsBuild)\qt.targets')">
+    <QtMsBuild>$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
+  </PropertyGroup>
+  <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
+    <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
+  </Target>
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.props')">
+    <Import Project="$(QtMsBuild)\qt.props" />
+  </ImportGroup>
+  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <QtModules>core;network;gui;widgets</QtModules>
+  </PropertyGroup>
+  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <QtModules>core;network;gui;widgets</QtModules>
+  </PropertyGroup>
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">ximea_dk</TargetName>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</IgnoreImportLibrary>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">ximea_dk</TargetName>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</IgnoreImportLibrary>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>.;..\..\PCL\PCL1.9.1\include\pcl-1.9;..\..\PCL\PCL1.9.1\3rdParty\Boost\include\boost-1_68;..\..\PCL\PCL1.9.1\3rdParty\Eigen\eigen3;..\..\PCL\PCL1.9.1\3rdParty\FLANN\include;..\..\PCL\PCL1.9.1\3rdParty\OpenNI2\Include;..\..\PCL\PCL1.9.1\3rdParty\Qhull\include;..\..\PCL\PCL1.9.1\3rdParty\VTK\include\vtk-8.1;..\..\CV\opencv\build\include;Microsoft.Azure.Kinect.Sensor.1.4.1\build\native\include;$(QTDIR)\include;release;$(QTDIR)\mkspecs\win32-msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>release\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <DisableSpecificWarnings>4577;4467;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <Optimization>MaxSpeed</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;WIN64;QT_DEPRECATED_WARNINGS;QT_NO_DEBUG;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>shell32.lib;D:\PCL\PCL1.9.1\lib\pcl_common_release.lib;D:\PCL\PCL1.9.1\lib\pcl_features_release.lib;D:\PCL\PCL1.9.1\lib\pcl_filters_release.lib;D:\PCL\PCL1.9.1\lib\pcl_io_release.lib;D:\PCL\PCL1.9.1\lib\pcl_io_ply_release.lib;D:\PCL\PCL1.9.1\lib\pcl_kdtree_release.lib;D:\PCL\PCL1.9.1\lib\pcl_keypoints_release.lib;D:\PCL\PCL1.9.1\lib\pcl_ml_release.lib;D:\PCL\PCL1.9.1\lib\pcl_octree_release.lib;D:\PCL\PCL1.9.1\lib\pcl_outofcore_release.lib;D:\PCL\PCL1.9.1\lib\pcl_people_release.lib;D:\PCL\PCL1.9.1\lib\pcl_recognition_release.lib;D:\PCL\PCL1.9.1\lib\pcl_registration_release.lib;D:\PCL\PCL1.9.1\lib\pcl_sample_consensus_release.lib;D:\PCL\PCL1.9.1\lib\pcl_search_release.lib;D:\PCL\PCL1.9.1\lib\pcl_segmentation_release.lib;D:\PCL\PCL1.9.1\lib\pcl_stereo_release.lib;D:\PCL\PCL1.9.1\lib\pcl_surface_release.lib;D:\PCL\PCL1.9.1\lib\pcl_tracking_release.lib;D:\PCL\PCL1.9.1\lib\pcl_visualization_release.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_atomic-vc141-mt-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_bzip2-vc141-mt-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_chrono-vc141-mt-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_container-vc141-mt-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_context-vc141-mt-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_contract-vc141-mt-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_coroutine-vc141-mt-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_date_time-vc141-mt-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_exception-vc141-mt-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_fiber-vc141-mt-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_filesystem-vc141-mt-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_graph-vc141-mt-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_graph_parallel-vc141-mt-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_iostreams-vc141-mt-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_locale-vc141-mt-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_log-vc141-mt-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_log_setup-vc141-mt-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_math_c99-vc141-mt-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_math_c99f-vc141-mt-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_math_c99l-vc141-mt-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_math_tr1-vc141-mt-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_math_tr1f-vc141-mt-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_math_tr1l-vc141-mt-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_mpi-vc141-mt-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_numpy27-vc141-mt-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_numpy37-vc141-mt-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_prg_exec_monitor-vc141-mt-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_program_options-vc141-mt-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_python27-vc141-mt-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_python37-vc141-mt-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_random-vc141-mt-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_regex-vc141-mt-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_serialization-vc141-mt-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_signals-vc141-mt-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_stacktrace_noop-vc141-mt-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_stacktrace_windbg_cached-vc141-mt-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_stacktrace_windbg-vc141-mt-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_system-vc141-mt-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_test_exec_monitor-vc141-mt-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_thread-vc141-mt-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_timer-vc141-mt-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_type_erasure-vc141-mt-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_unit_test_framework-vc141-mt-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_wave-vc141-mt-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_wserialization-vc141-mt-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_zlib-vc141-mt-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\FLANN\lib\flann.lib;D:\PCL\PCL1.9.1\3rdParty\FLANN\lib\flann_cpp.lib;D:\PCL\PCL1.9.1\3rdParty\FLANN\lib\flann_cpp_s.lib;D:\PCL\PCL1.9.1\3rdParty\FLANN\lib\flann_s.lib;D:\PCL\PCL1.9.1\3rdParty\Qhull\lib\qhullcpp.lib;D:\PCL\PCL1.9.1\3rdParty\Qhull\lib\qhullstatic.lib;D:\PCL\PCL1.9.1\3rdParty\Qhull\lib\qhullstatic_r.lib;D:\PCL\PCL1.9.1\3rdParty\Qhull\lib\qhull.lib;D:\PCL\PCL1.9.1\3rdParty\Qhull\lib\qhull_p.lib;D:\PCL\PCL1.9.1\3rdParty\Qhull\lib\qhull_r.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkalglib-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkChartsCore-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkCommonColor-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkCommonComputationalGeometry-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkCommonCore-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkCommonDataModel-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkCommonExecutionModel-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkCommonMath-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkCommonMisc-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkCommonSystem-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkCommonTransforms-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkDICOMParser-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkDomainsChemistry-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkexoIIc-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkexpat-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkFiltersAMR-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkFiltersCore-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkFiltersExtraction-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkFiltersFlowPaths-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkFiltersGeneral-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkFiltersGeneric-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkFiltersGeometry-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkFiltersHybrid-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkFiltersHyperTree-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkFiltersImaging-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkFiltersModeling-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkFiltersParallel-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkFiltersParallelImaging-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkFiltersPoints-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkFiltersProgrammable-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkFiltersSelection-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkFiltersSMP-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkFiltersSources-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkFiltersStatistics-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkFiltersTexture-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkFiltersTopology-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkFiltersVerdict-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkfreetype-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkGeovisCore-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkgl2ps-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkhdf5-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkhdf5_hl-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkImagingColor-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkImagingCore-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkImagingFourier-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkImagingGeneral-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkImagingHybrid-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkImagingMath-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkImagingMorphological-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkImagingSources-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkImagingStatistics-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkImagingStencil-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkInfovisCore-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkInfovisLayout-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkInteractionImage-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkInteractionStyle-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkInteractionWidgets-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkIOAMR-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkIOCore-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkIOEnSight-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkIOExodus-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkIOExport-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkIOExportOpenGL-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkIOGeometry-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkIOImage-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkIOImport-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkIOInfovis-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkIOLegacy-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkIOLSDyna-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkIOMINC-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkIOMovie-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkIONetCDF-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkIOParallel-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkIOParallelXML-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkIOPLY-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkIOSQL-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkIOTecplotTable-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkIOVideo-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkIOXML-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkIOXMLParser-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkjpeg-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkjsoncpp-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtklibharu-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtklibxml2-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtklz4-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkmetaio-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkNetCDF-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtknetcdfcpp-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkoggtheora-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkParallelCore-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkpng-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkproj4-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkRenderingAnnotation-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkRenderingContext2D-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkRenderingContextOpenGL-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkRenderingCore-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkRenderingFreeType-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkRenderingGL2PS-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkRenderingImage-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkRenderingLabel-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkRenderingLIC-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkRenderingLOD-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkRenderingOpenGL-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkRenderingVolume-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkRenderingVolumeOpenGL-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtksqlite-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtksys-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtktiff-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkverdict-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkViewsContext2D-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkViewsCore-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkViewsInfovis-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkzlib-8.1.lib;D:\PCL\PCL1.9.1\3rdParty\OpenNI2\Lib\OpenNI2.lib;D:\CV\opencv\build\x64\vc15\lib\opencv_world410.lib;.\xiapi64.lib;.\Microsoft.Azure.Kinect.Sensor.1.4.1\lib\native\amd64\release\k4a.lib;.\Microsoft.Azure.Kinect.Sensor.1.4.1\lib\native\amd64\release\k4arecord.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(QTDIR)\lib;C:\utils\my_sql\my_sql\lib;C:\utils\postgresql\pgsql\lib;$(QTDIR)\lib;D:\PCL\PCL1.9.1\lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib;D:\PCL\PCL1.9.1\3rdParty\FLANN\lib;D:\PCL\PCL1.9.1\3rdParty\Qhull\lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib;D:\PCL\PCL1.9.1\3rdParty\OpenNI2\Lib;D:\CV\opencv\build\x64\vc15\lib;.;.\Microsoft.Azure.Kinect.Sensor.1.4.1\lib\native\amd64\release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>"/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'" %(AdditionalOptions)</AdditionalOptions>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <LinkIncremental>false</LinkIncremental>
+      <OutputFile>$(OutDir)\ximea_dk.exe</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SubSystem>Windows</SubSystem>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;WIN64;QT_DEPRECATED_WARNINGS;QT_NO_DEBUG;QT_WIDGETS_LIB;QT_GUI_LIB;QT_NETWORK_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <QtMoc>
+      <CompilerFlavor>msvc</CompilerFlavor>
+      <Include>$(Configuration)/moc_predefs.h</Include>
+      <DynamicSource>output</DynamicSource>
+    </QtMoc>
+    <QtUic />
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>.;..\..\PCL\PCL1.9.1\include\pcl-1.9;..\..\PCL\PCL1.9.1\3rdParty\Boost\include\boost-1_68;..\..\PCL\PCL1.9.1\3rdParty\Eigen\eigen3;..\..\PCL\PCL1.9.1\3rdParty\FLANN\include;..\..\PCL\PCL1.9.1\3rdParty\OpenNI2\Include;..\..\PCL\PCL1.9.1\3rdParty\Qhull\include;..\..\PCL\PCL1.9.1\3rdParty\VTK\include\vtk-8.1;..\..\CV\opencv\build\include;Microsoft.Azure.Kinect.Sensor.1.4.1\build\native\include;$(QTDIR)\include;debug;$(QTDIR)\mkspecs\win32-msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>debug\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4577;4467;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;WIN64;QT_DEPRECATED_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>shell32.lib;D:\PCL\PCL1.9.1\lib\pcl_common_debug.lib;D:\PCL\PCL1.9.1\lib\pcl_features_debug.lib;D:\PCL\PCL1.9.1\lib\pcl_filters_debug.lib;D:\PCL\PCL1.9.1\lib\pcl_io_debug.lib;D:\PCL\PCL1.9.1\lib\pcl_io_ply_debug.lib;D:\PCL\PCL1.9.1\lib\pcl_kdtree_debug.lib;D:\PCL\PCL1.9.1\lib\pcl_keypoints_debug.lib;D:\PCL\PCL1.9.1\lib\pcl_ml_debug.lib;D:\PCL\PCL1.9.1\lib\pcl_octree_debug.lib;D:\PCL\PCL1.9.1\lib\pcl_outofcore_debug.lib;D:\PCL\PCL1.9.1\lib\pcl_people_debug.lib;D:\PCL\PCL1.9.1\lib\pcl_recognition_debug.lib;D:\PCL\PCL1.9.1\lib\pcl_registration_debug.lib;D:\PCL\PCL1.9.1\lib\pcl_sample_consensus_debug.lib;D:\PCL\PCL1.9.1\lib\pcl_search_debug.lib;D:\PCL\PCL1.9.1\lib\pcl_segmentation_debug.lib;D:\PCL\PCL1.9.1\lib\pcl_stereo_debug.lib;D:\PCL\PCL1.9.1\lib\pcl_surface_debug.lib;D:\PCL\PCL1.9.1\lib\pcl_tracking_debug.lib;D:\PCL\PCL1.9.1\lib\pcl_visualization_debug.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_atomic-vc141-mt-gd-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_bzip2-vc141-mt-gd-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_chrono-vc141-mt-gd-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_container-vc141-mt-gd-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_context-vc141-mt-gd-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_contract-vc141-mt-gd-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_coroutine-vc141-mt-gd-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_date_time-vc141-mt-gd-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_exception-vc141-mt-gd-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_fiber-vc141-mt-gd-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_filesystem-vc141-mt-gd-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_graph-vc141-mt-gd-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_graph_parallel-vc141-mt-gd-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_iostreams-vc141-mt-gd-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_locale-vc141-mt-gd-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_log-vc141-mt-gd-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_log_setup-vc141-mt-gd-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_math_c99-vc141-mt-gd-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_math_c99f-vc141-mt-gd-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_math_c99l-vc141-mt-gd-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_math_tr1-vc141-mt-gd-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_math_tr1f-vc141-mt-gd-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_math_tr1l-vc141-mt-gd-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_mpi-vc141-mt-gd-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_numpy27-vc141-mt-gd-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_numpy37-vc141-mt-gd-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_prg_exec_monitor-vc141-mt-gd-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_program_options-vc141-mt-gd-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_python27-vc141-mt-gd-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_python37-vc141-mt-gd-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_random-vc141-mt-gd-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_regex-vc141-mt-gd-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_serialization-vc141-mt-gd-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_signals-vc141-mt-gd-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_stacktrace_noop-vc141-mt-gd-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_stacktrace_windbg_cached-vc141-mt-gd-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_stacktrace_windbg-vc141-mt-gd-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_system-vc141-mt-gd-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_test_exec_monitor-vc141-mt-gd-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_thread-vc141-mt-gd-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_timer-vc141-mt-gd-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_type_erasure-vc141-mt-gd-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_unit_test_framework-vc141-mt-gd-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_wave-vc141-mt-gd-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_wserialization-vc141-mt-gd-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib\libboost_zlib-vc141-mt-gd-x64-1_68.lib;D:\PCL\PCL1.9.1\3rdParty\FLANN\lib\flann-gd.lib;D:\PCL\PCL1.9.1\3rdParty\FLANN\lib\flann_cpp-gd.lib;D:\PCL\PCL1.9.1\3rdParty\FLANN\lib\flann_cpp_s-gd.lib;D:\PCL\PCL1.9.1\3rdParty\FLANN\lib\flann_s-gd.lib;D:\PCL\PCL1.9.1\3rdParty\Qhull\lib\qhullcpp_d.lib;D:\PCL\PCL1.9.1\3rdParty\Qhull\lib\qhullstatic_d.lib;D:\PCL\PCL1.9.1\3rdParty\Qhull\lib\qhullstatic_r_d.lib;D:\PCL\PCL1.9.1\3rdParty\Qhull\lib\qhull_d.lib;D:\PCL\PCL1.9.1\3rdParty\Qhull\lib\qhull_p_d.lib;D:\PCL\PCL1.9.1\3rdParty\Qhull\lib\qhull_r_d.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkalglib-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkChartsCore-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkCommonColor-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkCommonComputationalGeometry-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkCommonCore-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkCommonDataModel-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkCommonExecutionModel-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkCommonMath-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkCommonMisc-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkCommonSystem-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkCommonTransforms-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkDICOMParser-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkDomainsChemistry-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkexoIIc-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkexpat-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkFiltersAMR-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkFiltersCore-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkFiltersExtraction-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkFiltersFlowPaths-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkFiltersGeneral-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkFiltersGeneric-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkFiltersGeometry-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkFiltersHybrid-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkFiltersHyperTree-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkFiltersImaging-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkFiltersModeling-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkFiltersParallel-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkFiltersParallelImaging-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkFiltersPoints-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkFiltersProgrammable-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkFiltersSelection-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkFiltersSMP-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkFiltersSources-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkFiltersStatistics-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkFiltersTexture-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkFiltersTopology-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkFiltersVerdict-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkfreetype-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkGeovisCore-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkgl2ps-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkhdf5-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkhdf5_hl-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkImagingColor-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkImagingCore-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkImagingFourier-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkImagingGeneral-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkImagingHybrid-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkImagingMath-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkImagingMorphological-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkImagingSources-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkImagingStatistics-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkImagingStencil-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkInfovisCore-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkInfovisLayout-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkInteractionImage-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkInteractionStyle-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkInteractionWidgets-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkIOAMR-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkIOCore-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkIOEnSight-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkIOExodus-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkIOExport-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkIOExportOpenGL-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkIOGeometry-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkIOImage-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkIOImport-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkIOInfovis-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkIOLegacy-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkIOLSDyna-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkIOMINC-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkIOMovie-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkIONetCDF-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkIOParallel-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkIOParallelXML-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkIOPLY-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkIOSQL-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkIOTecplotTable-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkIOVideo-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkIOXML-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkIOXMLParser-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkjpeg-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkjsoncpp-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtklibharu-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtklibxml2-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtklz4-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkmetaio-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkNetCDF-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtknetcdfcpp-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkoggtheora-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkParallelCore-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkpng-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkproj4-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkRenderingAnnotation-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkRenderingContext2D-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkRenderingContextOpenGL-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkRenderingCore-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkRenderingFreeType-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkRenderingGL2PS-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkRenderingImage-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkRenderingLabel-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkRenderingLIC-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkRenderingLOD-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkRenderingOpenGL-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkRenderingVolume-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkRenderingVolumeOpenGL-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtksqlite-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtksys-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtktiff-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkverdict-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkViewsContext2D-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkViewsCore-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkViewsInfovis-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib\vtkzlib-8.1-gd.lib;D:\PCL\PCL1.9.1\3rdParty\OpenNI2\Lib\OpenNI2.lib;D:\CV\opencv\build\x64\vc15\lib\opencv_world410d.lib;.\xiapi64.lib;.\Microsoft.Azure.Kinect.Sensor.1.4.1\lib\native\amd64\release\k4a.lib;.\Microsoft.Azure.Kinect.Sensor.1.4.1\lib\native\amd64\release\k4arecord.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(QTDIR)\lib;C:\utils\my_sql\my_sql\lib;C:\utils\postgresql\pgsql\lib;$(QTDIR)\lib;D:\PCL\PCL1.9.1\lib;D:\PCL\PCL1.9.1\3rdParty\Boost\lib;D:\PCL\PCL1.9.1\3rdParty\FLANN\lib;D:\PCL\PCL1.9.1\3rdParty\Qhull\lib;D:\PCL\PCL1.9.1\3rdParty\VTK\lib;D:\PCL\PCL1.9.1\3rdParty\OpenNI2\Lib;D:\CV\opencv\build\x64\vc15\lib;.;.\Microsoft.Azure.Kinect.Sensor.1.4.1\lib\native\amd64\release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>"/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'" %(AdditionalOptions)</AdditionalOptions>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <OutputFile>$(OutDir)\ximea_dk.exe</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SubSystem>Windows</SubSystem>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;WIN64;QT_DEPRECATED_WARNINGS;QT_WIDGETS_LIB;QT_GUI_LIB;QT_NETWORK_LIB;QT_CORE_LIB;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <QtUic />
+    <QtMoc>
+      <CompilerFlavor>msvc</CompilerFlavor>
+      <Include>$(Configuration)/moc_predefs.h</Include>
+      <DynamicSource>output</DynamicSource>
+    </QtMoc>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="dk_cv_pcl.cpp" />
+    <ClCompile Include="dksave.cpp" />
+    <ClCompile Include="k4a_grabber.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="mywidget.cpp" />
+    <ClCompile Include="ur.cpp" />
+    <ClCompile Include="xiApiPlusOcv.cpp" />
+    <ClCompile Include="ximea.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="dk.h">
+    </QtMoc>
+    <QtMoc Include="dksave.h">
+    </QtMoc>
+    <ClInclude Include="k4a_grabber.h" />
+    <QtMoc Include="mywidget.h">
+    </QtMoc>
+    <QtMoc Include="ur.h">
+    </QtMoc>
+    <QtMoc Include="ximea.h">
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="debug\moc_predefs.h.cbt">
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\mkspecs\features\data\dummy.cpp;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">cl -Bx"$(QTDIR)\bin\qmake.exe" -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zi -MDd -W3 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 -wd4577 -wd4467 -E -Za $(QTDIR)\mkspecs\features\data\dummy.cpp 2&gt;NUL &gt;debug\moc_predefs.h</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generate moc_predefs.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">debug\moc_predefs.h;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="release\moc_predefs.h.cbt">
+      <FileType>Document</FileType>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\mkspecs\features\data\dummy.cpp;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">cl -Bx"$(QTDIR)\bin\qmake.exe" -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -O2 -MD -W3 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 -wd4577 -wd4467 -E -Za $(QTDIR)\mkspecs\features\data\dummy.cpp 2&gt;NUL &gt;release\moc_predefs.h</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generate moc_predefs.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">release\moc_predefs.h;%(Outputs)</Outputs>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="mywidget.ui">
+    </QtUic>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
+    <Import Project="$(QtMsBuild)\qt.targets" />
+  </ImportGroup>
+  <ImportGroup Label="ExtensionTargets" />
+</Project>
