@@ -1,7 +1,7 @@
 # NeREF_pipeline
 This pipeline is about how to organize the dataset and train a Neural REference Field (NeREF) model. 
 
-![1](https://github.com/DigBigPigForU/NeREF_pipeline/assets/109472083/cb93e64c-b448-4e7f-a675-73498f65ab42)
+![1](https://github.com/DigBigPigForU/NeREF_pipeline/assets/109472083/f285a923-db53-4254-9201-538ab26b53f0)
 
 For more details please refer to Documentation S1. This document is the specific implementation method of NeREF, including several parts such as pre-data preparation, data preprocessing, dataset construction, model building and model application. Since the process involves the use of different software and the compilation and running of different types of code, we will provide data examples, software usage instructions or source code respectively. 
 
